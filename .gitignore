@@ -5,5 +5,5 @@ log
 results
 *.err
 *.log
-env.json
+cypress.env.json
 dataStore.txt
