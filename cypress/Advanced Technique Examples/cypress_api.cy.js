@@ -13,8 +13,8 @@ context('Cypress APIs', () => {
       Cypress.Commands.add('console', {
         prevSubject: true,
       }, (subject, method) => {
-      // the previous subject is automatically received
-      // and the commands arguments are shifted
+        // the previous subject is automatically received
+        // and the commands arguments are shifted
 
         // allow us to change the console method used
         method = method || 'log'
@@ -29,7 +29,7 @@ context('Cypress APIs', () => {
       })
 
       cy.get('button').console('info').then(($button) => {
-      // subject is still $button
+        // subject is still $button
       })
     })
   })
@@ -53,63 +53,6 @@ context('Cypress APIs', () => {
     })
   })
 
-  context('Cypress.arch', () => {
-    beforeEach(() => {
-      cy.visit('https://example.cypress.io/cypress-api')
-    })
-
-    it('Get CPU architecture name of underlying OS', () => {
-    // https://on.cypress.io/arch
-      expect(Cypress.arch).to.exist
-    })
-  })
-
-  context('Cypress.config()', () => {
-    beforeEach(() => {
-      cy.visit('https://example.cypress.io/cypress-api')
-    })
-
-    it('Get and set configuration options', () => {
-    // https://on.cypress.io/config
-      let myConfig = Cypress.config()
-
-      expect(myConfig).to.have.property('animationDistanceThreshold', 5)
-      expect(myConfig).to.have.property('baseUrl', null)
-      expect(myConfig).to.have.property('defaultCommandTimeout', 4000)
-      expect(myConfig).to.have.property('requestTimeout', 5000)
-      expect(myConfig).to.have.property('responseTimeout', 30000)
-      expect(myConfig).to.have.property('viewportHeight', 660)
-      expect(myConfig).to.have.property('viewportWidth', 1000)
-      expect(myConfig).to.have.property('pageLoadTimeout', 60000)
-      expect(myConfig).to.have.property('waitForAnimations', true)
-
-      expect(Cypress.config('pageLoadTimeout')).to.eq(60000)
-
-      // this will change the config for the rest of your tests!
-      Cypress.config('pageLoadTimeout', 20000)
-
-      expect(Cypress.config('pageLoadTimeout')).to.eq(20000)
-
-      Cypress.config('pageLoadTimeout', 60000)
-    })
-  })
-
-  context('Cypress.dom', () => {
-    beforeEach(() => {
-      cy.visit('https://example.cypress.io/cypress-api')
-    })
-
-    // https://on.cypress.io/dom
-    it('.isHidden() - determine if a DOM element is hidden', () => {
-      let hiddenP = Cypress.$('.dom-p p.hidden').get(0)
-      let visibleP = Cypress.$('.dom-p p.visible').get(0)
-
-      // our first paragraph has css class 'hidden'
-      expect(Cypress.dom.isHidden(hiddenP)).to.be.true
-      expect(Cypress.dom.isHidden(visibleP)).to.be.false
-    })
-  })
-
   context('Cypress.env()', () => {
     beforeEach(() => {
       cy.visit('https://example.cypress.io/cypress-api')
@@ -119,8 +62,8 @@ context('Cypress APIs', () => {
 
     // https://on.cypress.io/environment-variables
     it('Get environment variables', () => {
-    // https://on.cypress.io/env
-    // set multiple environment variables
+      // https://on.cypress.io/env
+      // set multiple environment variables
       Cypress.env({
         host: 'veronica.dev.local',
         api_server: 'http://localhost:8888/v1/',
@@ -145,7 +88,7 @@ context('Cypress APIs', () => {
     })
 
     it('Control what is printed to the Command Log', () => {
-    // https://on.cypress.io/cypress-log
+      // https://on.cypress.io/cypress-log
     })
   })
 
@@ -155,7 +98,7 @@ context('Cypress APIs', () => {
     })
 
     it('Get underlying OS name', () => {
-    // https://on.cypress.io/platform
+      // https://on.cypress.io/platform
       expect(Cypress.platform).to.be.exist
     })
   })
@@ -166,7 +109,7 @@ context('Cypress APIs', () => {
     })
 
     it('Get current version of Cypress being run', () => {
-    // https://on.cypress.io/version
+      // https://on.cypress.io/version
       expect(Cypress.version).to.be.exist
     })
   })
@@ -177,8 +120,8 @@ context('Cypress APIs', () => {
     })
 
     it('Get current spec information', () => {
-    // https://on.cypress.io/spec
-    // wrap the object so we can inspect it easily by clicking in the command log
+      // https://on.cypress.io/spec
+      // wrap the object so we can inspect it easily by clicking in the command log
       cy.wrap(Cypress.spec).should('include.keys', ['name', 'relative', 'absolute'])
     })
   })

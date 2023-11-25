@@ -1,0 +1,9 @@
+node_modules
+cypress/videos
+cypress/screenshots
+log
+results
+*.err
+*.log
+env.json
+dataStore.txt

@@ -1,0 +1,25 @@
+If you wish to use sensitive data such as a "username" and "password", create a txt file "dataStore.txt" within this project and ensure its added to the .gitignore file.
+
+Within dataStore.txt, you can save and maintain commands for running cypress with login details in mind. This file is useful to remember commands to run tests that use sensitive data. you can save the below commands to this file, as mentioned above, make sure dataStore.txt is added to the gitignore file. 
+
+1.
+npx cypress run --spec "cypress/Tests/"Name of test script.cy.js" --env Username=xxxxxxx,Password=xxxxxxx
+
+2.
+npx cypress open --env Username=xxxxxxx,Password=xxxxxxxxx
+
+The first test will run a specific test script in headless mode through the console and will use a username and password variable within your env.json in a secure way.
+
+The second test will open the cypress gui with the username and password variables passed within your env.json in a secure way.
+
+add a file called env.json within the project and add it to the gitignore file. within the env.json copy and paste the below:
+
+{
+    "Username": "xxxxxxxxx",
+    "Password": "xxxxxxxxx"
+}
+
+(replace the "xxxxxxxxx" with the details you wish to pass in tests, for example and email address for username and your password)
+
+
+
