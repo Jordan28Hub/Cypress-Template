@@ -5,5 +5,5 @@ log
 results
 *.err
 *.log
-fixtures/env.json
+env.json
 dataStore.txt
